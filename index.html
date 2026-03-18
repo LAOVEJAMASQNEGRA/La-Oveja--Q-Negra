@@ -20,6 +20,7 @@
       --shadow:0 24px 70px rgba(0,0,0,.35);
       --radius:24px;
       --nav-h:84px;
+      --whatsapp:#25D366;
     }
 
     *{
@@ -192,7 +193,7 @@
       padding:0 22px;
       border-radius:999px;
       font-weight:700;
-      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
       cursor:pointer;
       border:none;
     }
@@ -218,6 +219,17 @@
     .btn-outline:hover{
       transform:translateY(-2px);
       border-color:var(--gold);
+    }
+
+    .btn-whatsapp{
+      background:var(--whatsapp);
+      color:#0a0a0a;
+      box-shadow:0 14px 34px rgba(37,211,102,.22);
+    }
+
+    .btn-whatsapp:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 40px rgba(37,211,102,.28);
     }
 
     .menu-toggle{
@@ -333,8 +345,8 @@
 
     .hero-card{
       justify-self:end;
-      width:min(100%, 390px);
-      padding:28px;
+      width:min(100%, 420px);
+      padding:30px;
       border-radius:28px;
       background:linear-gradient(180deg, rgba(17,17,17,.94), rgba(10,10,10,.88));
       border:1px solid var(--line);
@@ -353,7 +365,7 @@
     .hero-card-title{
       font-family:'Cormorant Garamond', serif;
       color:#fff;
-      font-size:2rem;
+      font-size:2.15rem;
       line-height:1;
     }
 
@@ -368,7 +380,7 @@
     }
 
     .hero-card p{
-      font-size:.96rem;
+      font-size:.97rem;
       color:var(--muted);
       margin-bottom:22px;
     }
@@ -414,6 +426,13 @@
     .mini-item span{
       color:var(--muted);
       font-size:.9rem;
+    }
+
+    .hero-card-actions{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:26px;
     }
 
     /* CARDS / GRIDS */
@@ -494,6 +513,32 @@
     .story-side{
       display:grid;
       gap:22px;
+    }
+
+    /* WHY US */
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .why-card{
+      text-align:left;
+      min-height:220px;
+    }
+
+    .why-icon{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      margin-bottom:18px;
+      color:var(--gold);
+      background:rgba(212,175,55,.1);
+      border:1px solid rgba(212,175,55,.18);
+      font-size:1.25rem;
+      font-weight:700;
     }
 
     /* CHEESES */
@@ -644,6 +689,30 @@
       text-align:center;
     }
 
+    /* WHATSAPP FLOAT */
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:1200;
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--whatsapp);
+      color:#08140d;
+      font-size:1.9rem;
+      font-weight:700;
+      box-shadow:0 18px 40px rgba(37,211,102,.28);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .whatsapp-float:hover{
+      transform:translateY(-3px) scale(1.04);
+      box-shadow:0 22px 46px rgba(37,211,102,.35);
+    }
+
     /* REVEAL */
     .reveal{
       opacity:0;
@@ -659,7 +728,7 @@
     /* RESPONSIVE */
     @media (max-width: 1100px){
       .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .grid-3,.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .grid-3,.gallery-grid,.why-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
       .hero-grid,.story-grid,.reserve-wrap{grid-template-columns:1fr;}
       .hero-card{justify-self:start;}
       .hero-highlights{grid-template-columns:1fr;max-width:100%;}
@@ -679,11 +748,17 @@
     @media (max-width: 640px){
       .section{padding:84px 0;}
       .container{width:min(100% - 20px, 1180px);}
-      .grid-4,.grid-3,.gallery-grid{grid-template-columns:1fr;}
+      .grid-4,.grid-3,.gallery-grid,.why-grid{grid-template-columns:1fr;}
       .hero-actions,.contact-links{flex-direction:column;align-items:stretch;}
       .btn{width:100%;}
       .card,.story-main,.reserve-box,.hero-card,.contact-box{padding:24px;}
       .brand-sub{display:none;}
+      .whatsapp-float{
+        width:58px;
+        height:58px;
+        right:14px;
+        bottom:14px;
+      }
     }
   </style>
 </head>
@@ -702,6 +777,7 @@
       <nav class="nav-links">
         <a href="#historia">Historia</a>
         <a href="#servicios">Servicios</a>
+        <a href="#por-que-elegirnos">Por qué elegirnos</a>
         <a href="#quesos">Quesos</a>
         <a href="#galeria">Galería</a>
         <a href="#reservas">Reservas</a>
@@ -722,11 +798,11 @@
         <div class="eyebrow">Montajes gourmet · Eventos · Catas · Regalos</div>
         <h1>Experiencias con queso que <span>se recuerdan</span></h1>
         <p>
-          Diseñamos mesas de quesos artesanales con una estética elegante, un producto cuidado y una puesta en escena pensada para sorprender desde el primer vistazo.
+          Diseñamos mesas de quesos artesanales con una estética elegante, una selección cuidada y una puesta en escena pensada para sorprender en bodas, eventos y celebraciones especiales.
         </p>
 
         <div class="hero-actions">
-          <a href="#reservas" class="btn btn-gold">Reservar experiencia</a>
+          <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20reservar%20una%20experiencia%20con%20La%20Oveja%20%2BQ%20Negra." target="_blank" class="btn btn-gold">Reservar experiencia</a>
           <a href="#galeria" class="btn btn-outline">Ver inspiración</a>
         </div>
 
@@ -749,38 +825,43 @@
       <aside class="hero-card reveal">
         <div class="hero-card-top">
           <div>
-            <div class="hero-card-title">La experiencia</div>
+            <div class="hero-card-title">Reserva tu fecha</div>
           </div>
-          <span class="badge">Versión PRO</span>
+          <span class="badge">Atención directa</span>
         </div>
 
-        <p>Una base visual más elegante y preparada para seguir creciendo con fotos reales, nuevos bloques y mejoras de marca.</p>
+        <p>
+          Si ya tienes un evento en mente, podemos ayudarte a encontrar la propuesta ideal según el tipo de celebración, el número de invitados y el estilo que buscas.
+        </p>
 
         <div class="mini-list">
           <div class="mini-item">
             <div class="mini-icon">✦</div>
             <div>
-              <strong>Hero de impacto</strong>
-              <span>Con tu imagen principal como fondo.</span>
+              <strong>Bodas y celebraciones</strong>
+              <span>Montajes elegantes adaptados a cada ocasión.</span>
             </div>
           </div>
           <div class="mini-item">
             <div class="mini-icon">✦</div>
             <div>
-              <strong>Diseño responsive</strong>
-              <span>Preparado para móvil, tablet y escritorio.</span>
+              <strong>Trato cercano</strong>
+              <span>Hablamos contigo para definir la mejor propuesta.</span>
             </div>
           </div>
           <div class="mini-item">
             <div class="mini-icon">✦</div>
             <div>
-              <strong>Secciones listas</strong>
-              <span>Para añadir fotos, colaboraciones y reservas.</span>
+              <strong>Respuesta rápida</strong>
+              <span>WhatsApp directo para resolver dudas y reservar.</span>
             </div>
           </div>
         </div>
 
-        <a href="#contacto" class="btn btn-outline">Solicitar información</a>
+        <div class="hero-card-actions">
+          <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20una%20mesa%20de%20quesos%20para%20mi%20evento." target="_blank" class="btn btn-whatsapp">Hablar por WhatsApp</a>
+          <a href="#reservas" class="btn btn-outline">Ver opciones de reserva</a>
+        </div>
       </aside>
     </div>
   </section>
@@ -844,6 +925,33 @@
           <span class="card-kicker">04</span>
           <h3>Regalos gourmet</h3>
           <p>Cajas, bandejas y detalles con producto seleccionado, perfectos para sorprender con gusto y personalidad.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="por-que-elegirnos">
+    <div class="container">
+      <h2 class="section-title reveal">Por qué elegirnos</h2>
+      <p class="section-text reveal">Una experiencia pensada para cuidar tanto el sabor como la imagen, con un trato cercano y una propuesta hecha a medida.</p>
+
+      <div class="why-grid">
+        <article class="card why-card reveal">
+          <div class="why-icon">01</div>
+          <h3>Producto con personalidad</h3>
+          <p>Seleccionamos quesos y acompañamientos buscando equilibrio, sabor y una presentación que esté a la altura del evento.</p>
+        </article>
+
+        <article class="card why-card reveal">
+          <div class="why-icon">02</div>
+          <h3>Montajes con estilo</h3>
+          <p>Cada mesa se diseña para emocionar visualmente y encajar con la estética de bodas, celebraciones privadas y eventos de marca.</p>
+        </article>
+
+        <article class="card why-card reveal">
+          <div class="why-icon">03</div>
+          <h3>Atención cercana</h3>
+          <p>Te acompañamos desde la idea inicial hasta el montaje final, resolviendo dudas y adaptando la propuesta a lo que realmente necesitas.</p>
         </article>
       </div>
     </div>
@@ -960,6 +1068,14 @@
       © La Oveja +Q Negra — Experiencias gastronómicas con identidad propia
     </div>
   </footer>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20La%20Oveja%20%2BQ%20Negra."
+    target="_blank"
+    aria-label="Abrir WhatsApp"
+    title="Hablar por WhatsApp"
+  >✆</a>
 
   <script>
     const nav = document.getElementById('mainNav');
