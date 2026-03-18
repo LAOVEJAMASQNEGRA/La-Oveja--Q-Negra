@@ -1,797 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Oveja +Q Negra</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#080808;
-      --bg-soft:#101010;
-      --bg-card:rgba(18,18,18,.88);
-      --line:rgba(212,175,55,.24);
-      --line-strong:rgba(212,175,55,.48);
-      --text:#f5f1e8;
-      --muted:#cfc7b8;
-      --gold:#d4af37;
-      --gold-2:#b99224;
-      --shadow:0 24px 70px rgba(0,0,0,.35);
-      --radius:24px;
-      --nav-h:84px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Oveja +Q Negra</title>
 
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{
-      font-family:'Inter', Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(212,175,55,.08), transparent 28%),
-        linear-gradient(180deg, #090909 0%, #070707 100%);
-      color:var(--text);
-      line-height:1.6;
-      overflow-x:hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    img{max-width:100%;display:block;}
-    a{color:inherit;text-decoration:none;}
-    .container{width:min(1180px, calc(100% - 32px));margin:auto;}
-    .section{padding:110px 0;position:relative;}
-    .section-title{
-      font-family:'Cormorant Garamond', serif;
-      font-size:clamp(2.2rem, 4vw, 3.5rem);
-      color:var(--gold);
-      text-align:center;
-      margin-bottom:14px;
-      letter-spacing:.03em;
-    }
-    .section-text{
-      max-width:760px;
-      margin:0 auto 48px;
-      text-align:center;
-      color:var(--muted);
-      font-size:1.04rem;
-    }
+<style>
 
-    /* NAV */
-    .nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      z-index:1000;
-      background:rgba(5,5,5,.72);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      transition:.35s ease;
-    }
-    .nav.scrolled{
-      background:rgba(5,5,5,.92);
-      border-bottom:1px solid var(--line);
-      box-shadow:0 10px 30px rgba(0,0,0,.22);
-    }
-    .nav-inner{
-      min-height:var(--nav-h);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:22px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      min-width:0;
-    }
-    .brand-mark{
-      width:44px;height:44px;border-radius:50%;
-      border:1px solid var(--line-strong);
-      display:grid;place-items:center;
-      color:var(--gold);
-      font-family:'Cormorant Garamond', serif;
-      font-size:1.3rem;
-      background:rgba(212,175,55,.06);
-      box-shadow:inset 0 0 20px rgba(212,175,55,.05);
-    }
-    .brand-text{min-width:0;}
-    .brand-title{
-      font-family:'Cormorant Garamond', serif;
-      font-size:1.45rem;
-      letter-spacing:.05em;
-      color:#fff;
-      line-height:1;
-    }
-    .brand-sub{
-      color:var(--muted);
-      font-size:.76rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      margin-top:4px;
-      white-space:nowrap;
-    }
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:22px;
-      flex-wrap:wrap;
-    }
-    .nav-links a{
-      color:#efe7d8;
-      opacity:.9;
-      font-size:.95rem;
-      position:relative;
-    }
-    .nav-links a::after{
-      content:'';
-      position:absolute;
-      left:0;bottom:-6px;
-      width:0;height:1px;
-      background:var(--gold);
-      transition:.25s ease;
-    }
-    .nav-links a:hover::after{width:100%;}
-    .nav-cta{display:flex;align-items:center;gap:12px;}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:50px;
-      padding:0 22px;
-      border-radius:999px;
-      font-weight:700;
-      transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-      cursor:pointer;
-      border:none;
-    }
-    .btn-gold{
-      background:linear-gradient(135deg, #e1c15a, #b99224);
-      color:#0d0d0d;
-      box-shadow:0 14px 34px rgba(185,146,36,.28);
-    }
-    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(185,146,36,.35);}
-    .btn-outline{
-      border:1px solid var(--line-strong);
-      color:#fff;
-      background:rgba(255,255,255,.02);
-      backdrop-filter:blur(8px);
-    }
-    .btn-outline:hover{transform:translateY(-2px);border-color:var(--gold);}
+:root{
+--gold:#d4af37;
+--bg:#080808;
+--text:#f5f1e8;
+--muted:#cfc7b8;
+--shadow:0 24px 70px rgba(0,0,0,.35);
+}
 
-    .menu-toggle{
-      display:none;
-      width:46px;height:46px;border-radius:50%;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      color:#fff;
-      font-size:1.35rem;
-    }
+body{
+margin:0;
+font-family:'Inter', sans-serif;
+background:#080808;
+color:white;
+}
 
-    /* HERO */
-    .hero{
-      min-height:100vh;
-      position:relative;
-      display:flex;
-      align-items:center;
-      padding:calc(var(--nav-h) + 42px) 0 48px;
-      background:
-        linear-gradient(90deg, rgba(6,6,6,.88) 0%, rgba(6,6,6,.60) 42%, rgba(6,6,6,.76) 100%),
-        url("imagenes/oveja-negra.jpg") center/cover no-repeat;
-    }
-    .hero::before{
-      content:'';
-      position:absolute;inset:0;
-      background:
-        radial-gradient(circle at 20% 25%, rgba(212,175,55,.15), transparent 24%),
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.42));
-      pointer-events:none;
-    }
-    .hero-grid{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:32px;
-      align-items:center;
-    }
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      color:#efe7d8;
-      margin-bottom:18px;
-      font-size:.85rem;
-      backdrop-filter:blur(8px);
-    }
-    .hero h1{
-      font-family:'Cormorant Garamond', serif;
-      font-size:clamp(3.1rem, 7vw, 5.8rem);
-      line-height:.95;
-      margin-bottom:20px;
-      color:#fff;
-      max-width:760px;
-      text-wrap:balance;
-    }
-    .hero h1 span{color:var(--gold);}
-    .hero p{
-      max-width:670px;
-      color:#f1ebdf;
-      font-size:1.1rem;
-      margin-bottom:30px;
-    }
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
-    .hero-highlights{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:14px;
-      max-width:760px;
-    }
-    .highlight{
-      padding:16px 18px;
-      border-radius:18px;
-      background:rgba(15,15,15,.58);
-      border:1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(8px);
-    }
-    .highlight strong{display:block;color:var(--gold);font-size:1.12rem;margin-bottom:4px;}
-    .highlight span{color:#dfd5c5;font-size:.94rem;}
+/* NAV */
+.nav{
+position:fixed;
+width:100%;
+top:0;
+background:#000;
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+z-index:1000;
+}
 
-    .hero-card{
-      justify-self:end;
-      width:min(100%, 390px);
-      padding:28px;
-      border-radius:28px;
-      background:linear-gradient(180deg, rgba(17,17,17,.94), rgba(10,10,10,.88));
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-    }
-    .hero-card-top{
-      display:flex;justify-content:space-between;align-items:flex-start;gap:14px;
-      margin-bottom:18px;
-    }
-    .hero-card-title{
-      font-family:'Cormorant Garamond', serif;
-      color:#fff;
-      font-size:2rem;
-      line-height:1;
-    }
-    .badge{
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(212,175,55,.1);
-      border:1px solid rgba(212,175,55,.25);
-      color:var(--gold);
-      font-size:.8rem;
-      white-space:nowrap;
-    }
-    .hero-card p{font-size:.96rem;color:var(--muted);margin-bottom:22px;}
-    .mini-list{display:grid;gap:12px;margin-bottom:22px;}
-    .mini-item{
-      display:flex;gap:12px;align-items:flex-start;
-      padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07);
-    }
-    .mini-item:last-child{border-bottom:none;padding-bottom:0;}
-    .mini-icon{
-      width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-      background:rgba(212,175,55,.1);color:var(--gold);font-size:1rem;flex:0 0 auto;
-    }
-    .mini-item strong{display:block;color:#fff;font-size:.98rem;margin-bottom:2px;}
-    .mini-item span{color:var(--muted);font-size:.9rem;}
+.nav a{color:white;text-decoration:none;margin:0 10px;}
 
-    /* CARDS / GRIDS */
-    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
-    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
-    .card{
-      background:var(--bg-card);
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow:var(--shadow);
-      transition:transform .28s ease, border-color .28s ease, background .28s ease;
-      backdrop-filter:blur(10px);
-    }
-    .card:hover{
-      transform:translateY(-7px);
-      border-color:var(--line-strong);
-      background:rgba(22,22,22,.95);
-    }
-    .card-kicker{
-      color:var(--gold);
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      margin-bottom:14px;
-      display:block;
-    }
-    .card h3{
-      font-family:'Cormorant Garamond', serif;
-      font-size:1.9rem;
-      line-height:1;
-      margin-bottom:12px;
-      color:#fff;
-    }
-    .card p{color:var(--muted);font-size:.98rem;}
+.btn{
+background:var(--gold);
+padding:10px 20px;
+border-radius:30px;
+color:black;
+font-weight:bold;
+}
 
-    /* STORY */
-    .story-grid{
-      display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:24px;
-      align-items:stretch;
-    }
-    .story-main{padding:34px;}
-    .story-main p{margin-bottom:14px;}
-    .signature{
-      margin-top:20px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.08);
-      color:#fff;
-      font-weight:600;
-    }
-    .story-side{display:grid;gap:22px;}
+/* HERO */
+.hero{
+height:90vh;
+display:flex;
+align-items:center;
+padding:100px 40px;
+background:black;
+}
 
-    /* CHEESES */
-    .cheese-card{
-      position:relative;
-      overflow:hidden;
-      min-height:240px;
-    }
-    .cheese-card::before{
-      content:'';
-      position:absolute;inset:0;
-      background:linear-gradient(180deg, rgba(212,175,55,.06), transparent 35%);
-      pointer-events:none;
-    }
-    .tag{
-      display:inline-flex;
-      padding:7px 12px;
-      border-radius:999px;
-      margin-bottom:14px;
-      background:rgba(212,175,55,.12);
-      color:var(--gold);
-      border:1px solid rgba(212,175,55,.2);
-      font-size:.78rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
+.hero h1{
+font-family:'Cormorant Garamond', serif;
+font-size:60px;
+}
 
-    /* GALLERY placeholders */
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:18px;
-    }
-    .gallery-item{
-      min-height:290px;
-      position:relative;
-      overflow:hidden;
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.58)),
-        radial-gradient(circle at top, rgba(212,175,55,.14), transparent 40%),
-        linear-gradient(135deg, #1b1b1b, #111111);
-      box-shadow:var(--shadow);
-      transition:transform .28s ease, border-color .28s ease;
-    }
-    .gallery-item:hover{transform:translateY(-6px);border-color:var(--line-strong);}
-    .gallery-overlay{
-      position:absolute;inset:auto 0 0 0;
-      padding:22px;
-      background:linear-gradient(180deg, transparent, rgba(0,0,0,.72));
-    }
-    .gallery-overlay strong{display:block;color:#fff;font-size:1.05rem;margin-bottom:4px;}
-    .gallery-overlay span{color:#ddd0bd;font-size:.92rem;}
-    .gallery-ph{
-      position:absolute;inset:0;
-      display:grid;place-items:center;
-      color:rgba(255,255,255,.18);
-      font-size:3rem;
-      letter-spacing:.08em;
-    }
+.hero span{color:var(--gold);}
 
-    /* RESERVAS */
-    .reserve-wrap{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-      align-items:stretch;
-    }
-    .reserve-box{padding:34px;}
-    .reserve-box ul{list-style:none;display:grid;gap:12px;margin:22px 0 28px;}
-    .reserve-box li{color:var(--muted);display:flex;gap:12px;align-items:flex-start;}
-    .reserve-box li::before{content:'✦';color:var(--gold);margin-top:1px;}
+/* SECTION */
+.section{
+padding:100px 40px;
+}
 
-    /* CONTACT */
-    .contact-box{
-      max-width:860px;
-      margin:auto;
-      padding:38px;
-      text-align:center;
-      background:linear-gradient(180deg, rgba(18,18,18,.96), rgba(10,10,10,.92));
-      border:1px solid var(--line);
-      border-radius:30px;
-      box-shadow:var(--shadow);
-    }
-    .contact-links{
-      display:flex;justify-content:center;flex-wrap:wrap;gap:14px;
-      margin-top:24px;
-    }
+.section-title{
+text-align:center;
+font-size:40px;
+color:var(--gold);
+font-family:'Cormorant Garamond';
+}
 
-    /* FOOTER */
-    .footer{
-      padding:36px 0 48px;
-      border-top:1px solid rgba(255,255,255,.06);
-      color:#b9b1a4;
-      text-align:center;
-    }
+/* GALERIA */
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
 
-    /* REVEAL */
-    .reveal{
-      opacity:0;
-      transform:translateY(28px);
-      transition:opacity .7s ease, transform .7s ease;
-    }
-    .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
+.gallery-item{
+min-height:320px;
+position:relative;
+overflow:hidden;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 1100px){
-      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .grid-3,.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .hero-grid,.story-grid,.reserve-wrap{grid-template-columns:1fr;}
-      .hero-card{justify-self:start;}
-      .hero-highlights{grid-template-columns:1fr;max-width:100%;}
-    }
+.gallery-item:hover{
+transform:scale(1.02);
+}
 
-    @media (max-width: 840px){
-      :root{--nav-h:74px;}
-      .menu-toggle{display:grid;place-items:center;}
-      .nav-links,
-      .nav-cta{
-        display:none;
-      }
-      .nav.open .nav-panel{
-        opacity:1;
-        pointer-events:auto;
-        transform:translateY(0);
-      }
-      .nav-panel{
-        position:absolute;
-        top:100%;left:16px;right:16px;
-        padding:18px;
-        border-radius:22px;
-        background:rgba(10,10,10,.96);
-        border:1px solid var(--line);
-        box-shadow:var(--shadow);
-        opacity:0;
-        pointer-events:none;
-        transform:translateY(-10px);
-        transition:.25s ease;
-      }
-      .nav-panel a{
-        display:block;
-        padding:12px 4px;
-        border-bottom:1px solid rgba(255,255,255,.06);
-        color:#f5ecdd;
-      }
-      .nav-panel a:last-of-type{border-bottom:none;}
-      .nav-panel .btn{margin-top:14px;width:100%;}
-      .hero{background-position:center center;}
-      .hero h1{font-size:clamp(2.7rem, 12vw, 4rem);}
-    }
+.gallery-image{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
 
-    @media (max-width: 640px){
-      .section{padding:84px 0;}
-      .container{width:min(100% - 20px, 1180px);}
-      .grid-4,.grid-3,.gallery-grid{grid-template-columns:1fr;}
-      .hero-actions,.contact-links{flex-direction:column;align-items:stretch;}
-      .btn{width:100%;}
-      .card,.story-main,.reserve-box,.hero-card,.contact-box{padding:24px;}
-      .brand-sub{display:none;}
-    }
-  </style>
+.gallery-item:hover .gallery-image{
+transform:scale(1.1);
+}
+
+.gallery-overlay{
+position:absolute;
+bottom:0;
+width:100%;
+padding:20px;
+background:linear-gradient(transparent, black);
+}
+
+</style>
 </head>
+
 <body>
 
-  <header class="nav" id="mainNav">
-    <div class="container nav-inner">
-      <a href="#inicio" class="brand">
-        <div class="brand-mark">O</div>
-        <div class="brand-text">
-          <div class="brand-title">La Oveja +Q Negra</div>
-          <div class="brand-sub">Experiencias gastronómicas</div>
-        </div>
-      </a>
+<!-- NAV -->
+<div class="nav">
+<div>La Oveja +Q Negra</div>
+<div>
+<a href="#galeria">Galería</a>
+<a href="#contacto">Contacto</a>
+<a class="btn">Reservar</a>
+</div>
+</div>
 
-      <nav class="nav-links">
-        <a href="#historia">Historia</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#quesos">Quesos</a>
-        <a href="#galeria">Galería</a>
-        <a href="#reservas">Reservas</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+<!-- HERO -->
+<section class="hero">
+<div>
+<h1>Experiencias con queso que <span>se recuerdan</span></h1>
+<p>Diseñamos mesas de quesos artesanales únicas.</p>
+</div>
+</section>
 
-      <div class="nav-cta">
-        <a href="#reservas" class="btn btn-gold">Reservar</a>
-      </div>
+<!-- GALERIA -->
+<section class="section" id="galeria">
+<h2 class="section-title">Galería</h2>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
-    </div>
-</header>
+<div class="gallery-grid">
 
-  <section class="hero" id="inicio">
-    <div class="container hero-grid">
-      <div class="reveal visible">
-        <div class="eyebrow">Montajes gourmet · Eventos · Catas · Regalos</div>
-        <h1>Experiencias con queso que <span>se recuerdan</span></h1>
-        <p>
-          Diseñamos mesas de quesos artesanales con una estética elegante, un producto cuidado y una puesta en escena pensada para sorprender desde el primer vistazo.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#reservas" class="btn btn-gold">Reservar experiencia</a>
-          <a href="#galeria" class="btn btn-outline">Ver inspiración</a>
-        </div>
-
-        <div class="hero-highlights">
-          <div class="highlight">
-            <strong>Montaje premium</strong>
-            <span>Diseño visual cuidado para bodas, eventos y celebraciones.</span>
-          </div>
-          <div class="highlight">
-            <strong>Selección artesana</strong>
-            <span>Quesos escogidos por sabor, textura y personalidad.</span>
-          </div>
-          <div class="highlight">
-            <strong>Atención personalizada</strong>
-            <span>Cada mesa se adapta al estilo y al momento del cliente.</span>
-          </div>
-        </div>
-      </div>
-
-      <aside class="hero-card reveal">
-        <div class="hero-card-top">
-          <div>
-            <div class="hero-card-title">La experiencia</div>
-          </div>
-          <span class="badge">Versión PRO</span>
-        </div>
-
-        <p>Una base visual más elegante y preparada para seguir creciendo con fotos reales, nuevos bloques y mejoras de marca.</p>
-
-        <div class="mini-list">
-          <div class="mini-item">
-            <div class="mini-icon">✦</div>
-            <div>
-              <strong>Hero de impacto</strong>
-              <span>Con tu imagen principal como fondo.</span>
-            </div>
-          </div>
-          <div class="mini-item">
-            <div class="mini-icon">✦</div>
-            <div>
-              <strong>Diseño responsive</strong>
-              <span>Preparado para móvil, tablet y escritorio.</span>
-            </div>
-          </div>
-          <div class="mini-item">
-            <div class="mini-icon">✦</div>
-            <div>
-              <strong>Secciones listas</strong>
-              <span>Para añadir fotos, colaboraciones y reservas.</span>
-            </div>
-          </div>
-        </div>
-
-        <a href="#contacto" class="btn btn-outline">Solicitar información</a>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section" id="historia">
-    <div class="container">
-      <h2 class="section-title reveal">Nuestra historia</h2>
-      <p class="section-text reveal">Una marca construida desde la pasión por la restauración, el detalle y la belleza de compartir producto de calidad.</p>
-
-      <div class="story-grid">
-        <article class="card story-main reveal">
-          <span class="card-kicker">Detrás del proyecto</span>
-          <h3>Rosa Mª Estévez Fernández</h3>
-          <p>Hola, soy Rosa. Me defino como una apasionada de la restauración, constante, trabajadora, con don de gentes y con un gran gusto por la decoración de cada rinconcito.</p>
-          <p>Me encanta diseñar cada mesa combinando pasión, entusiasmo y experiencia para convertir cada evento en un momento especial y único.</p>
-          <p>Mi objetivo es ofrecer alta calidad cuidando cada detalle: producto, mantenimiento, sabores, texturas, decoración y una atención personalizada en todo momento.</p>
-          <div class="signature">La Oveja +Q Negra · Sabor, estética y emoción</div>
-        </article>
-
-        <div class="story-side">
-          <article class="card reveal">
-            <span class="card-kicker">Filosofía</span>
-            <h3>Cada evento importa</h3>
-            <p>Sabemos que cada celebración es especial. Por eso trabajamos cada mesa con mimo, antes, durante y después del evento.</p>
-          </article>
-          <article class="card reveal">
-            <span class="card-kicker">Compromiso</span>
-            <h3>Detalles que marcan</h3>
-            <p>Llenamos cada mesa de calidad, sabor, belleza y emociones para que el recuerdo sea tan potente como la experiencia.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="servicios">
-    <div class="container">
-      <h2 class="section-title reveal">Servicios</h2>
-      <p class="section-text reveal">Una propuesta versátil para celebraciones privadas, marcas, bodas y regalos con identidad propia.</p>
-
-      <div class="grid-4">
-        <article class="card reveal">
-          <span class="card-kicker">01</span>
-          <h3>Mesas de quesos</h3>
-          <p>Selecciones artesanales con montaje visual elegante para eventos, bodas, aniversarios y celebraciones especiales.</p>
-        </article>
-
-        <article class="card reveal">
-          <span class="card-kicker">02</span>
-          <h3>Eventos</h3>
-          <p>Planificamos y servimos experiencias gastronómicas adaptadas al número de invitados, estilo y ocasión.</p>
-        </article>
-
-        <article class="card reveal">
-          <span class="card-kicker">03</span>
-          <h3>Catas y experiencias</h3>
-          <p>Momentos guiados y personalizados donde el queso se convierte en el centro de una vivencia memorable.</p>
-        </article>
-
-        <article class="card reveal">
-          <span class="card-kicker">04</span>
-          <h3>Regalos gourmet</h3>
-          <p>Cajas, bandejas y detalles con producto seleccionado, perfectos para sorprender con gusto y personalidad.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="quesos">
-    <div class="container">
-      <h2 class="section-title reveal">Nuestros quesos</h2>
-      <p class="section-text reveal">Una muestra del tipo de producto con el que trabajamos. Después iremos añadiendo imágenes reales y una presentación más editorial.</p>
-
-      <div class="grid-3">
-        <article class="card cheese-card reveal">
-          <span class="tag">Finca Pascualete</span>
-          <h3>La Retorta</h3>
-          <p>Queso de oveja de textura muy cremosa y sabor suave, definido y persistente. Ideal para mesas que buscan elegancia y carácter.</p>
-        </article>
-
-        <article class="card cheese-card reveal">
-          <span class="tag">Quesería del Tiétar</span>
-          <h3>Monte Enebro</h3>
-          <p>Queso de cabra de pasta blanda, corteza enmohecida y un perfil ligeramente ácido, muy fundente y expresivo en boca.</p>
-        </article>
-
-        <article class="card cheese-card reveal">
-          <span class="tag">Cremosito del Zújar</span>
-          <h3>Trufa negra</h3>
-          <p>Versión trufada, cremosa y equilibrada, con matices intensos y una personalidad marcada para propuestas gastronómicas premium.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="galeria">
-    <div class="container">
-      <h2 class="section-title reveal">Galería</h2>
-      <p class="section-text reveal">He dejado una galería visual profesional con huecos preparados para ir sustituyendo cada bloque por tus fotos reales poco a poco.</p>
-
-      <div class="gallery-grid">
-        <article class="gallery-item reveal">
-          <div class="imagenes/foto1.jpg">03</div>
-          <div class="gallery-overlay">
-            <strong>Mesa principal</strong>
-            <span>Aquí pondremos una foto real de una mesa de quesos.</span>
-          </div>
-        </article>
-
-        <div class="gallery-grid">
-       <article class="gallery-item reveal" 
-style="background:url('imagenes/IMG_9622.JPEG') center/cover no-repeat;">
-  <div class="gallery-overlay">
-    <strong>Evento especial</strong>
-    <span>Montaje personalizado</span>
-  </div>
+<article class="gallery-item">
+<img src="./imagenes/foto-01.jpg" class="gallery-image">
+<div class="gallery-overlay">
+<strong>Mesa principal</strong>
+</div>
 </article>
 
-        <article class="gallery-item reveal">
-          <div class="gallery-ph">03</div>
-          <div class="gallery-overlay">
-            <strong>Detalle gourmet</strong>
-            <span>Perfecto para primeros planos de producto o decoración.</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+<article class="gallery-item">
+<img src="./imagenes/foto-02.jpg" class="gallery-image">
+<div class="gallery-overlay">
+<strong>Evento especial</strong>
+</div>
+</article>
 
-  <section class="section" id="reservas">
-    <div class="container">
-      <h2 class="section-title reveal">Reservas</h2>
-      <p class="section-text reveal">Una sección más sólida y comercial, pensada para que más adelante podamos añadir formulario, WhatsApp o agenda.</p>
+<article class="gallery-item">
+<img src="./imagenes/foto-03.jpg" class="gallery-image">
+<div class="gallery-overlay">
+<strong>Detalle gourmet</strong>
+</div>
+</article>
 
-      <div class="reserve-wrap">
-        <article class="card reserve-box reveal">
-          <span class="card-kicker">Cómo trabajamos</span>
-          <h3>Planificamos contigo</h3>
-          <ul>
-            <li>Escuchamos tu idea, estilo de evento y número de asistentes.</li>
-            <li>Proponemos una composición visual y selección de productos.</li>
-            <li>Coordinamos montaje, servicio y detalles finales.</li>
-          </ul>
-          <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20saber%20cu%C3%A1l%20es%20el%20servicio%20que%20mejor%20me%20puede%20venir%20para%20lo%20que%20necesito." target="_blank" class="btn btn-gold">Solicitar propuesta</a>
-        </article>
+</div>
+</section>
 
-        <article class="card reserve-box reveal">
-          <span class="card-kicker">Disponibilidad</span>
-          <h3>Reserva tu fecha</h3>
-          <p>Una vez recibida tu solicitud, te contactamos para definir los detalles y preparar una experiencia a medida.</p>
-          <ul>
-            <li>Bodas y celebraciones</li>
-            <li>Eventos de empresa</li>
-            <li>Regalos y formatos personalizados</li>
-          </ul>
-          <a href="https://wa.me/34673516594?text=Hola%20Rosa,%20gracias%20a%20tus%20aclaraciones%20me%20he%20decidido%20a%20escoger%20un%20d%C3%ADa." target="_blank" class="btn btn-outline">Hablar ahora</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contacto">
-    <div class="container">
-      <div class="contact-box reveal">
-        <h2 class="section-title" style="margin-bottom:12px;">Contacto</h2>
-        <p class="section-text" style="margin-bottom:0;">Este bloque ya queda preparado para seguir creciendo con teléfono, formulario, WhatsApp, ubicación o redes sociales.</p>
-
-        <div class="contact-links">
-          <a class="btn btn-gold" href="mailto:contacto@laovejamasquenegra.com">contacto@laovejamasquenegra.com</a>
-          <a class="btn btn-outline" href="https://www.instagram.com/laovejamasquenegra/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      © La Oveja +Q Negra — Experiencias gastronómicas con identidad propia
-    </div>
-  </footer>
-
-  <script>
-    const nav = document.getElementById('mainNav');
-    const menuToggle = document.getElementById('menuToggle');
-    const mobilePanel = document.getElementById('mobilePanel');
-
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    reveals.forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
