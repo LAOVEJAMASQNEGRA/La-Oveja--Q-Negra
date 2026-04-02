@@ -115,23 +115,68 @@
     }
 
     .brand-mark{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:1px solid var(--line-strong);
-  overflow:hidden; /* IMPORTANTE */
-  background:rgba(212,175,55,.06);
-  box-shadow:inset 0 0 20px rgba(212,175,55,.05);
-}
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      border:1px solid var(--line-strong);
+      overflow:hidden;
+      position:relative;
+      background:rgba(212,175,55,.06);
+      box-shadow:inset 0 0 20px rgba(212,175,55,.05);
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:
+        transform .4s cubic-bezier(.22,1,.36,1),
+        box-shadow .4s cubic-bezier(.22,1,.36,1),
+        border-color .4s cubic-bezier(.22,1,.36,1);
+      animation:logoIntro .8s cubic-bezier(.22,1,.36,1) both;
+    }
 
-.brand-mark img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+    .brand-mark img{
+      width:118%;
+      height:118%;
+      object-fit:cover;
+      object-position:center;
+      transform:translateX(2px) translateY(1px) scale(1.02);
+      transition:
+        transform .5s cubic-bezier(.22,1,.36,1),
+        filter .5s ease;
+    }
+
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:-3px;
+      border-radius:50%;
+      opacity:0;
+      background:radial-gradient(circle, rgba(212,175,55,.38), transparent 70%);
+      transition:opacity .35s ease;
+      pointer-events:none;
+    }
+
+    .brand:hover .brand-mark{
+      transform:scale(1.08);
+      border-color:var(--gold);
+      box-shadow:
+        0 0 18px rgba(212,175,55,.22),
+        inset 0 0 24px rgba(212,175,55,.08);
+    }
+
+    .brand:hover .brand-mark img{
+      transform:translateX(2px) translateY(1px) scale(1.10);
+      filter:brightness(1.06) contrast(1.04);
+    }
+
+    .brand:hover .brand-mark::after{
+      opacity:1;
+    }
 
     .brand-text{
       min-width:0;
+      animation:textIntro .85s cubic-bezier(.22,1,.36,1) both;
+      animation-delay:.12s;
     }
 
     .brand-title{
@@ -140,6 +185,11 @@
       letter-spacing:.05em;
       color:#fff;
       line-height:1;
+      transition:color .3s ease;
+    }
+
+    .brand:hover .brand-title{
+      color:var(--gold);
     }
 
     .brand-sub{
@@ -354,6 +404,13 @@
       border:1px solid var(--line);
       box-shadow:var(--shadow);
       backdrop-filter:blur(14px);
+      opacity:0;
+      transform:translateY(26px);
+    }
+
+    .hero-card.visible{
+      animation:fadeUpSoft 1s cubic-bezier(.22,1,.36,1) forwards;
+      animation-delay:.28s;
     }
 
     .hero-card-top{
@@ -727,6 +784,44 @@
       transform:none;
     }
 
+    /* ANIMACIONES */
+    @keyframes fadeUpSoft{
+      from{
+        opacity:0;
+        transform:translateY(26px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes logoIntro{
+      0%{
+        opacity:0;
+        transform:scale(.88) translateY(8px);
+      }
+      100%{
+        opacity:1;
+        transform:scale(1) translateY(0);
+      }
+    }
+
+    @keyframes textIntro{
+      from{
+        opacity:0;
+        transform:translateY(16px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .hero .reveal.visible{
+      animation:fadeUpSoft .95s cubic-bezier(.22,1,.36,1) forwards;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 1100px){
       .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -755,6 +850,14 @@
       .btn{width:100%;}
       .card,.story-main,.reserve-box,.hero-card,.contact-box{padding:24px;}
       .brand-sub{display:none;}
+      .brand-mark{
+        width:44px;
+        height:44px;
+      }
+      .brand-mark img{
+        width:118%;
+        height:118%;
+      }
       .whatsapp-float{
         width:58px;
         height:58px;
@@ -768,15 +871,15 @@
 
   <header class="nav" id="mainNav">
     <div class="container nav-inner">
-     <a href="#inicio" class="brand">
-  <div class="brand-mark">
-  <img src="./imagenes/logo01.JPEG" alt="Logo">
-</div>
-  <div class="brand-text">
-    <div class="brand-title">La Oveja +Q Negra</div>
-    <div class="brand-sub">Experiencias gastronómicas</div>
-  </div>
-</a>
+      <a href="#inicio" class="brand">
+        <div class="brand-mark">
+          <img src="./imagenes/logo01.JPEG" alt="Logo La Oveja +Q Negra">
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">La Oveja +Q Negra</div>
+          <div class="brand-sub">Experiencias gastronómicas</div>
+        </div>
+      </a>
 
       <nav class="nav-links">
         <a href="#historia">Historia</a>
@@ -1091,7 +1194,7 @@
       }
     });
 
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('.reveal, .hero-card');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1102,6 +1205,12 @@
     }, { threshold: 0.12 });
 
     reveals.forEach(el => observer.observe(el));
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.hero .reveal, .hero-card').forEach(el => {
+        el.classList.add('visible');
+      });
+    });
   </script>
 </body>
 </html>
