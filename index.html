@@ -114,66 +114,66 @@
       min-width:0;
     }
 
-   .brand-mark{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  border:1px solid var(--line-strong);
-  overflow:hidden;
-  position:relative;
-  background:rgba(212,175,55,.06);
-  box-shadow:inset 0 0 20px rgba(212,175,55,.05);
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:
-    transform .4s cubic-bezier(.22,1,.36,1),
-    box-shadow .4s cubic-bezier(.22,1,.36,1),
-    border-color .4s cubic-bezier(.22,1,.36,1);
-  animation:logoIntro .8s cubic-bezier(.22,1,.36,1) both;
-}
+    .brand-mark{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:1px solid var(--line-strong);
+      overflow:hidden;
+      position:relative;
+      background:rgba(212,175,55,.06);
+      box-shadow:inset 0 0 20px rgba(212,175,55,.05);
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:
+        transform .4s cubic-bezier(.22,1,.36,1),
+        box-shadow .4s cubic-bezier(.22,1,.36,1),
+        border-color .4s cubic-bezier(.22,1,.36,1);
+      animation:logoIntro .8s cubic-bezier(.22,1,.36,1) both;
+    }
 
-.brand-mark img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center;
-  background:#fff;
-  padding:2px;
-  transform:none;
-  transition:
-    transform .5s cubic-bezier(.22,1,.36,1),
-    filter .5s ease;
-}
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:center;
+      background:#fff;
+      padding:2px;
+      transform:none;
+      transition:
+        transform .5s cubic-bezier(.22,1,.36,1),
+        filter .5s ease;
+    }
 
-.brand-mark::after{
-  content:"";
-  position:absolute;
-  inset:-3px;
-  border-radius:50%;
-  opacity:0;
-  background:radial-gradient(circle, rgba(212,175,55,.38), transparent 70%);
-  transition:opacity .35s ease;
-  pointer-events:none;
-}
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:-3px;
+      border-radius:50%;
+      opacity:0;
+      background:radial-gradient(circle, rgba(212,175,55,.38), transparent 70%);
+      transition:opacity .35s ease;
+      pointer-events:none;
+    }
 
-.brand:hover .brand-mark{
-  transform:scale(1.08);
-  border-color:var(--gold);
-  box-shadow:
-    0 0 18px rgba(212,175,55,.22),
-    inset 0 0 24px rgba(212,175,55,.08);
-}
+    .brand:hover .brand-mark{
+      transform:scale(1.08);
+      border-color:var(--gold);
+      box-shadow:
+        0 0 18px rgba(212,175,55,.22),
+        inset 0 0 24px rgba(212,175,55,.08);
+    }
 
-.brand:hover .brand-mark img{
-  transform:scale(1.04);
-  filter:brightness(1.04) contrast(1.02);
-}
+    .brand:hover .brand-mark img{
+      transform:scale(1.04);
+      filter:brightness(1.04) contrast(1.02);
+    }
 
-.brand:hover .brand-mark::after{
-  opacity:1;
-}
+    .brand:hover .brand-mark::after{
+      opacity:1;
+    }
 
     .brand-text{
       min-width:0;
@@ -298,213 +298,212 @@
     }
 
     /* HERO */
-    /* HERO */
-.hero{
-  min-height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  padding:calc(var(--nav-h) + 42px) 0 48px;
-  overflow:hidden;
-  background:#000;
-}
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      padding:calc(var(--nav-h) + 42px) 0 48px;
+      overflow:hidden;
+      background:#000;
+    }
 
-.hero-video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:0;
-}
+    .hero-video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:0;
+    }
 
-.hero-overlay{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(90deg, rgba(6,6,6,.82) 0%, rgba(6,6,6,.58) 42%, rgba(6,6,6,.76) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.46));
-  z-index:1;
-  pointer-events:none;
-}
+    .hero-overlay{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(6,6,6,.82) 0%, rgba(6,6,6,.58) 42%, rgba(6,6,6,.76) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.46));
+      z-index:1;
+      pointer-events:none;
+    }
 
-.hero-grid{
-  position:relative;
-  z-index:2;
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:32px;
-  align-items:center;
-}
+    .hero-grid{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:32px;
+      align-items:center;
+    }
 
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:8px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.05);
-  color:#efe7d8;
-  margin-bottom:18px;
-  font-size:.85rem;
-  backdrop-filter:blur(8px);
-}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:#efe7d8;
+      margin-bottom:18px;
+      font-size:.85rem;
+      backdrop-filter:blur(8px);
+    }
 
-.hero h1{
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(3.1rem, 7vw, 5.8rem);
-  line-height:.95;
-  margin-bottom:20px;
-  color:#fff;
-  max-width:760px;
-  text-wrap:balance;
-}
+    .hero h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(3.1rem, 7vw, 5.8rem);
+      line-height:.95;
+      margin-bottom:20px;
+      color:#fff;
+      max-width:760px;
+      text-wrap:balance;
+    }
 
-.hero h1 span{
-  color:var(--gold);
-}
+    .hero h1 span{
+      color:var(--gold);
+    }
 
-.hero p{
-  max-width:670px;
-  color:#f1ebdf;
-  font-size:1.1rem;
-  margin-bottom:30px;
-}
+    .hero p{
+      max-width:670px;
+      color:#f1ebdf;
+      font-size:1.1rem;
+      margin-bottom:30px;
+    }
 
-.hero-actions{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-bottom:34px;
-}
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+    }
 
-.hero-highlights{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:14px;
-  max-width:760px;
-}
+    .hero-highlights{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+      max-width:760px;
+    }
 
-.highlight{
-  padding:16px 18px;
-  border-radius:18px;
-  background:rgba(15,15,15,.58);
-  border:1px solid rgba(255,255,255,.08);
-  backdrop-filter:blur(8px);
-}
+    .highlight{
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(15,15,15,.58);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(8px);
+    }
 
-.highlight strong{
-  display:block;
-  color:var(--gold);
-  font-size:1.12rem;
-  margin-bottom:4px;
-}
+    .highlight strong{
+      display:block;
+      color:var(--gold);
+      font-size:1.12rem;
+      margin-bottom:4px;
+    }
 
-.highlight span{
-  color:#dfd5c5;
-  font-size:.94rem;
-}
+    .highlight span{
+      color:#dfd5c5;
+      font-size:.94rem;
+    }
 
-.hero-card{
-  justify-self:end;
-  width:min(100%, 420px);
-  padding:30px;
-  border-radius:28px;
-  background:linear-gradient(180deg, rgba(17,17,17,.94), rgba(10,10,10,.88));
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(14px);
-  opacity:0;
-  transform:translateY(26px);
-}
+    .hero-card{
+      justify-self:end;
+      width:min(100%, 420px);
+      padding:30px;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(17,17,17,.94), rgba(10,10,10,.88));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      opacity:0;
+      transform:translateY(26px);
+    }
 
-.hero-card.visible{
-  animation:fadeUpSoft 1s cubic-bezier(.22,1,.36,1) forwards;
-  animation-delay:.28s;
-}
+    .hero-card.visible{
+      animation:fadeUpSoft 1s cubic-bezier(.22,1,.36,1) forwards;
+      animation-delay:.28s;
+    }
 
-.hero-card-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:14px;
-  margin-bottom:18px;
-}
+    .hero-card-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      margin-bottom:18px;
+    }
 
-.hero-card-title{
-  font-family:'Cormorant Garamond', serif;
-  color:#fff;
-  font-size:2.15rem;
-  line-height:1;
-}
+    .hero-card-title{
+      font-family:'Cormorant Garamond', serif;
+      color:#fff;
+      font-size:2.15rem;
+      line-height:1;
+    }
 
-.badge{
-  padding:7px 12px;
-  border-radius:999px;
-  background:rgba(212,175,55,.1);
-  border:1px solid rgba(212,175,55,.25);
-  color:var(--gold);
-  font-size:.8rem;
-  white-space:nowrap;
-}
+    .badge{
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(212,175,55,.1);
+      border:1px solid rgba(212,175,55,.25);
+      color:var(--gold);
+      font-size:.8rem;
+      white-space:nowrap;
+    }
 
-.hero-card p{
-  font-size:.97rem;
-  color:var(--muted);
-  margin-bottom:22px;
-}
+    .hero-card p{
+      font-size:.97rem;
+      color:var(--muted);
+      margin-bottom:22px;
+    }
 
-.mini-list{
-  display:grid;
-  gap:12px;
-  margin-bottom:22px;
-}
+    .mini-list{
+      display:grid;
+      gap:12px;
+      margin-bottom:22px;
+    }
 
-.mini-item{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  padding:14px 0;
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
+    .mini-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
 
-.mini-item:last-child{
-  border-bottom:none;
-  padding-bottom:0;
-}
+    .mini-item:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
 
-.mini-icon{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:rgba(212,175,55,.1);
-  color:var(--gold);
-  font-size:1rem;
-  flex:0 0 auto;
-}
+    .mini-icon{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(212,175,55,.1);
+      color:var(--gold);
+      font-size:1rem;
+      flex:0 0 auto;
+    }
 
-.mini-item strong{
-  display:block;
-  color:#fff;
-  font-size:.98rem;
-  margin-bottom:2px;
-}
+    .mini-item strong{
+      display:block;
+      color:#fff;
+      font-size:.98rem;
+      margin-bottom:2px;
+    }
 
-.mini-item span{
-  color:var(--muted);
-  font-size:.9rem;
-}
+    .mini-item span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
 
-.hero-card-actions{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin-top:26px;
-}
+    .hero-card-actions{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:26px;
+    }
 
     /* CARDS / GRIDS */
     .grid-4{
@@ -700,6 +699,159 @@
       font-size:.92rem;
     }
 
+    /* CALENDARIO */
+    .calendar-wrap{
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    .calendar-box{
+      background:linear-gradient(180deg, rgba(20,20,20,.95), rgba(12,12,12,.92));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+    }
+
+    .calendar-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:22px;
+    }
+
+    .calendar-title{
+      font-family:'Cormorant Garamond', serif;
+      font-size:2rem;
+      color:#fff;
+    }
+
+    .calendar-nav{
+      display:flex;
+      gap:10px;
+    }
+
+    .calendar-btn{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border:1px solid var(--line-strong);
+      background:rgba(255,255,255,.03);
+      color:#fff;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+
+    .calendar-btn:hover{
+      border-color:var(--gold);
+      transform:translateY(-1px);
+    }
+
+    .calendar-weekdays,
+    .calendar-grid-ui{
+      display:grid;
+      grid-template-columns:repeat(7, minmax(0, 1fr));
+      gap:10px;
+    }
+
+    .calendar-weekdays{
+      margin-bottom:12px;
+    }
+
+    .calendar-weekdays div{
+      text-align:center;
+      color:var(--muted);
+      font-size:.9rem;
+      padding:8px 0;
+    }
+
+    .calendar-day{
+      min-height:92px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.02);
+      padding:12px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition:.25s ease;
+    }
+
+    .calendar-day.empty{
+      opacity:.12;
+      pointer-events:none;
+    }
+
+    .calendar-day-number{
+      font-weight:600;
+      color:#fff;
+    }
+
+    .calendar-day-status{
+      font-size:.82rem;
+      color:var(--muted);
+    }
+
+    .calendar-day.available{
+      border-color:rgba(212,175,55,.30);
+      background:linear-gradient(180deg, rgba(212,175,55,.12), rgba(212,175,55,.05));
+      cursor:pointer;
+      box-shadow:0 10px 24px rgba(212,175,55,.08);
+    }
+
+    .calendar-day.available:hover{
+      transform:translateY(-2px) scale(1.01);
+      border-color:var(--gold);
+      box-shadow:0 14px 30px rgba(212,175,55,.16);
+    }
+
+    .calendar-day.available .calendar-day-status{
+      color:var(--gold);
+      font-weight:600;
+    }
+
+    .calendar-day.unavailable{
+      opacity:.55;
+    }
+
+    .calendar-legend{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top:20px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .calendar-legend span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .calendar-dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      display:inline-block;
+    }
+
+    .calendar-dot.available{
+      background:var(--gold);
+    }
+
+    .calendar-dot.unavailable{
+      background:#666;
+    }
+
+    .calendar-note{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
     /* RESERVAS */
     .reserve-wrap{
       display:grid;
@@ -860,15 +1012,26 @@
       .grid-4,.grid-3,.gallery-grid,.why-grid{grid-template-columns:1fr;}
       .hero-actions,.contact-links{flex-direction:column;align-items:stretch;}
       .btn{width:100%;}
-      .card,.story-main,.reserve-box,.hero-card,.contact-box{padding:24px;}
+      .card,.story-main,.reserve-box,.hero-card,.contact-box,.calendar-box{padding:24px;}
       .brand-sub{display:none;}
       .brand-mark{
-        width:44px;
-        height:44px;
+        width:42px;
+        height:42px;
       }
       .brand-mark img{
-        width:118%;
-        height:118%;
+        width:100%;
+        height:100%;
+      }
+      .calendar-top{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .calendar-day{
+        min-height:78px;
+        padding:10px;
+      }
+      .calendar-day-status{
+        font-size:.74rem;
       }
       .whatsapp-float{
         width:58px;
@@ -899,6 +1062,7 @@
         <a href="#por-que-elegirnos">Por qué elegirnos</a>
         <a href="#quesos">Quesos</a>
         <a href="#galeria">Galería</a>
+        <a href="#calendario">Calendario</a>
         <a href="#contacto">Contacto</a>
       </nav>
 
@@ -909,86 +1073,87 @@
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
     </div>
   </header>
-<section class="hero" id="inicio">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="./videos/video-hero.mp4" type="video/mp4">
-    Tu navegador no soporta vídeo HTML5.
-  </video>
 
-  <div class="hero-overlay"></div>
+  <section class="hero" id="inicio">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="./videos/video-hero.mp4" type="video/mp4">
+      Tu navegador no soporta vídeo HTML5.
+    </video>
 
-  <div class="container hero-grid">
-    <div class="reveal visible">
-      <div class="eyebrow">Montajes gourmet · Eventos · Catas · Regalos</div>
-      <h1>Experiencias con queso que <span>se recuerdan</span></h1>
-      <p>
-        Diseñamos mesas de quesos artesanales con una estética elegante, una selección cuidada y una puesta en escena pensada para sorprender en bodas, eventos y celebraciones especiales.
-      </p>
+    <div class="hero-overlay"></div>
 
-      <div class="hero-actions">
-        <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20reservar%20una%20experiencia%20con%20La%20Oveja%20%2BQ%20Negra." target="_blank" class="btn btn-gold">Reservar experiencia</a>
-        <a href="#galeria" class="btn btn-outline">Ver inspiración</a>
+    <div class="container hero-grid">
+      <div class="reveal visible">
+        <div class="eyebrow">Montajes gourmet · Eventos · Catas · Regalos</div>
+        <h1>Experiencias con queso que <span>se recuerdan</span></h1>
+        <p>
+          Diseñamos mesas de quesos artesanales con una estética elegante, una selección cuidada y una puesta en escena pensada para sorprender en bodas, eventos y celebraciones especiales.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20reservar%20una%20experiencia%20con%20La%20Oveja%20%2BQ%20Negra." target="_blank" class="btn btn-gold">Reservar experiencia</a>
+          <a href="#galeria" class="btn btn-outline">Ver inspiración</a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="highlight">
+            <strong>Montaje premium</strong>
+            <span>Diseño visual cuidado para bodas, eventos y celebraciones.</span>
+          </div>
+          <div class="highlight">
+            <strong>Selección artesana</strong>
+            <span>Quesos escogidos por sabor, textura y personalidad.</span>
+          </div>
+          <div class="highlight">
+            <strong>Atención personalizada</strong>
+            <span>Cada mesa se adapta al estilo y al momento del cliente.</span>
+          </div>
+        </div>
       </div>
 
-      <div class="hero-highlights">
-        <div class="highlight">
-          <strong>Montaje premium</strong>
-          <span>Diseño visual cuidado para bodas, eventos y celebraciones.</span>
+      <aside class="hero-card reveal">
+        <div class="hero-card-top">
+          <div>
+            <div class="hero-card-title">Reserva tu fecha</div>
+          </div>
+          <span class="badge">Atención directa</span>
         </div>
-        <div class="highlight">
-          <strong>Selección artesana</strong>
-          <span>Quesos escogidos por sabor, textura y personalidad.</span>
+
+        <p>
+          Si ya tienes un evento en mente, podemos ayudarte a encontrar la propuesta ideal según el tipo de celebración, el número de invitados y el estilo que buscas.
+        </p>
+
+        <div class="mini-list">
+          <div class="mini-item">
+            <div class="mini-icon">✦</div>
+            <div>
+              <strong>Bodas y celebraciones</strong>
+              <span>Montajes elegantes adaptados a cada ocasión.</span>
+            </div>
+          </div>
+          <div class="mini-item">
+            <div class="mini-icon">✦</div>
+            <div>
+              <strong>Trato cercano</strong>
+              <span>Hablamos contigo para definir la mejor propuesta.</span>
+            </div>
+          </div>
+          <div class="mini-item">
+            <div class="mini-icon">✦</div>
+            <div>
+              <strong>Respuesta rápida</strong>
+              <span>WhatsApp directo para resolver dudas y reservar.</span>
+            </div>
+          </div>
         </div>
-        <div class="highlight">
-          <strong>Atención personalizada</strong>
-          <span>Cada mesa se adapta al estilo y al momento del cliente.</span>
+
+        <div class="hero-card-actions">
+          <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20una%20mesa%20de%20quesos%20para%20mi%20evento." target="_blank" class="btn btn-whatsapp">Hablar por WhatsApp</a>
+          <a href="#reservas" class="btn btn-outline">Ver opciones de reserva</a>
         </div>
-      </div>
+      </aside>
     </div>
-
-    <aside class="hero-card reveal">
-      <div class="hero-card-top">
-        <div>
-          <div class="hero-card-title">Reserva tu fecha</div>
-        </div>
-        <span class="badge">Atención directa</span>
-      </div>
-
-      <p>
-        Si ya tienes un evento en mente, podemos ayudarte a encontrar la propuesta ideal según el tipo de celebración, el número de invitados y el estilo que buscas.
-      </p>
-
-      <div class="mini-list">
-        <div class="mini-item">
-          <div class="mini-icon">✦</div>
-          <div>
-            <strong>Bodas y celebraciones</strong>
-            <span>Montajes elegantes adaptados a cada ocasión.</span>
-          </div>
-        </div>
-        <div class="mini-item">
-          <div class="mini-icon">✦</div>
-          <div>
-            <strong>Trato cercano</strong>
-            <span>Hablamos contigo para definir la mejor propuesta.</span>
-          </div>
-        </div>
-        <div class="mini-item">
-          <div class="mini-icon">✦</div>
-          <div>
-            <strong>Respuesta rápida</strong>
-            <span>WhatsApp directo para resolver dudas y reservar.</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-card-actions">
-        <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20una%20mesa%20de%20quesos%20para%20mi%20evento." target="_blank" class="btn btn-whatsapp">Hablar por WhatsApp</a>
-        <a href="#reservas" class="btn btn-outline">Ver opciones de reserva</a>
-      </div>
-    </aside>
-  </div>
-</section>
+  </section>
 
   <section class="section" id="historia">
     <div class="container">
@@ -1141,6 +1306,48 @@
     </div>
   </section>
 
+  <section class="section" id="calendario">
+    <div class="container">
+      <h2 class="section-title reveal">Calendario de disponibilidad</h2>
+      <p class="section-text reveal">
+        Consulta algunas fechas disponibles y pulsa sobre el día que te interese para preguntar directamente por WhatsApp.
+      </p>
+
+      <div class="calendar-wrap reveal">
+        <div class="calendar-box">
+          <div class="calendar-top">
+            <div class="calendar-title" id="calendarTitle">Mes 2026</div>
+            <div class="calendar-nav">
+              <button class="calendar-btn" id="prevMonth" type="button">‹</button>
+              <button class="calendar-btn" id="nextMonth" type="button">›</button>
+            </div>
+          </div>
+
+          <div class="calendar-weekdays">
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mié</div>
+            <div>Jue</div>
+            <div>Vie</div>
+            <div>Sáb</div>
+            <div>Dom</div>
+          </div>
+
+          <div class="calendar-grid-ui" id="calendarGrid"></div>
+
+          <div class="calendar-legend">
+            <span><i class="calendar-dot available"></i> Disponible</span>
+            <span><i class="calendar-dot unavailable"></i> No disponible</span>
+          </div>
+
+          <p class="calendar-note">
+            Al pulsar una fecha disponible se abrirá WhatsApp con un mensaje automático para consultar disponibilidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="reservas">
     <div class="container">
       <h2 class="section-title reveal">Reservas</h2>
@@ -1229,6 +1436,108 @@
         el.classList.add('visible');
       });
     });
+
+    const availableDates = [
+      "2026-03-22",
+      "2026-03-28",
+      "2026-04-04",
+      "2026-04-11",
+      "2026-04-18",
+      "2026-04-25",
+      "2026-05-02",
+      "2026-05-09",
+      "2026-05-16"
+    ];
+
+    const unavailableDates = [
+      "2026-03-21",
+      "2026-03-29",
+      "2026-04-12"
+    ];
+
+    const monthNames = [
+      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+
+    const calendarTitle = document.getElementById("calendarTitle");
+    const calendarGrid = document.getElementById("calendarGrid");
+    const prevMonth = document.getElementById("prevMonth");
+    const nextMonth = document.getElementById("nextMonth");
+
+    let currentDate = new Date();
+
+    function formatLocalDate(year, month, day) {
+      const mm = String(month + 1).padStart(2, "0");
+      const dd = String(day).padStart(2, "0");
+      return `${year}-${mm}-${dd}`;
+    }
+
+    function renderCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth();
+
+      calendarTitle.textContent = `${monthNames[month]} ${year}`;
+      calendarGrid.innerHTML = "";
+
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+
+      let startWeekday = firstDay.getDay();
+      startWeekday = startWeekday === 0 ? 6 : startWeekday - 1;
+
+      for (let i = 0; i < startWeekday; i++) {
+        const empty = document.createElement("div");
+        empty.className = "calendar-day empty";
+        calendarGrid.appendChild(empty);
+      }
+
+      for (let day = 1; day <= lastDay.getDate(); day++) {
+        const dateStr = formatLocalDate(year, month, day);
+        const dayEl = document.createElement("div");
+        const numberEl = document.createElement("div");
+        const statusEl = document.createElement("div");
+
+        numberEl.className = "calendar-day-number";
+        numberEl.textContent = day;
+
+        statusEl.className = "calendar-day-status";
+
+        dayEl.className = "calendar-day";
+
+        if (availableDates.includes(dateStr)) {
+          dayEl.classList.add("available");
+          statusEl.textContent = "Disponible";
+
+          dayEl.addEventListener("click", () => {
+            const message = `Hola, Rosa. He visto libre el día ${day}/${month + 1}/${year} y me gustaría preguntar si sigue disponible.`;
+            const url = `https://wa.me/34673516594?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
+          });
+        } else if (unavailableDates.includes(dateStr)) {
+          dayEl.classList.add("unavailable");
+          statusEl.textContent = "No disponible";
+        } else {
+          statusEl.textContent = "Consultar";
+        }
+
+        dayEl.appendChild(numberEl);
+        dayEl.appendChild(statusEl);
+        calendarGrid.appendChild(dayEl);
+      }
+    }
+
+    prevMonth.addEventListener("click", () => {
+      currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+      renderCalendar(currentDate);
+    });
+
+    nextMonth.addEventListener("click", () => {
+      currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+      renderCalendar(currentDate);
+    });
+
+    renderCalendar(currentDate);
   </script>
 </body>
 </html>
