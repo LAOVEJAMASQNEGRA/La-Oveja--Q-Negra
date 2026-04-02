@@ -616,14 +616,52 @@
       position:relative;
       overflow:hidden;
       min-height:240px;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      isolation:isolate;
+      border-radius:var(--radius);
+      filter:saturate(.95) contrast(1.05) brightness(.95);
+      transition:
+        transform .28s ease,
+        border-color .28s ease,
+        background-size .6s ease,
+        filter .4s ease;
     }
 
     .cheese-card::before{
       content:'';
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(212,175,55,.06), transparent 35%);
+      background:
+        linear-gradient(180deg, rgba(212,175,55,.06), rgba(212,175,55,0) 20%),
+        linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.75) 45%, rgba(0,0,0,.92) 100%);
+      z-index:0;
       pointer-events:none;
+    }
+
+    .cheese-card > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .cheese-card:hover{
+      transform:translateY(-7px);
+      border-color:var(--line-strong);
+      background-size:110%;
+      filter:saturate(1) contrast(1.08) brightness(1);
+    }
+
+    .cheese-1{
+      background-image:url('./imagenes/queso01.jpg');
+    }
+
+    .cheese-2{
+      background-image:url('./imagenes/queso02.jpg');
+    }
+
+    .cheese-3{
+      background-image:url('./imagenes/queso03.jpg');
     }
 
     .tag{
@@ -1252,19 +1290,19 @@
       <p class="section-text reveal">Una muestra del tipo de producto con el que trabajamos. Después iremos añadiendo imágenes reales y una presentación más editorial.</p>
 
       <div class="grid-3">
-        <article class="card cheese-card reveal">
+        <article class="card cheese-card cheese-1 reveal">
           <span class="tag">Finca Pascualete</span>
           <h3>La Retorta</h3>
           <p>Queso de oveja de textura muy cremosa y sabor suave, definido y persistente. Ideal para mesas que buscan elegancia y carácter.</p>
         </article>
 
-        <article class="card cheese-card reveal">
+        <article class="card cheese-card cheese-2 reveal">
           <span class="tag">Quesería del Tiétar</span>
           <h3>Monte Enebro</h3>
           <p>Queso de cabra de pasta blanda, corteza enmohecida y un perfil ligeramente ácido, muy fundente y expresivo en boca.</p>
         </article>
 
-        <article class="card cheese-card reveal">
+        <article class="card cheese-card cheese-3 reveal">
           <span class="tag">Cremosito del Zújar</span>
           <h3>Trufa negra</h3>
           <p>Versión trufada, cremosa y equilibrada, con matices intensos y una personalidad marcada para propuestas gastronómicas premium.</p>
@@ -1438,87 +1476,87 @@
     });
 
     const availableDates = [
-     "2026-03-22",
-"2026-03-28",
-"2026-03-29",
-"2026-04-04",
-"2026-04-05",
-"2026-04-11",
-"2026-04-12",
-"2026-04-18",
-"2026-04-19",
-"2026-04-25",
-"2026-04-26",
-"2026-05-02",
-"2026-05-03",
-"2026-05-09",
-"2026-05-10",
-"2026-05-16",
-"2026-05-17",
-"2026-05-23",
-"2026-05-24",
-"2026-05-30",
-"2026-05-31",
-"2026-06-06",
-"2026-06-07",
-"2026-06-13",
-"2026-06-14",
-"2026-06-20",
-"2026-06-21",
-"2026-06-27",
-"2026-06-28",
-"2026-07-04",
-"2026-07-05",
-"2026-07-11",
-"2026-07-12",
-"2026-07-18",
-"2026-07-19",
-"2026-07-25",
-"2026-07-26",
-"2026-08-01",
-"2026-08-02",
-"2026-08-08",
-"2026-08-09",
-"2026-08-15",
-"2026-08-16",
-"2026-08-22",
-"2026-08-23",
-"2026-08-29",
-"2026-08-30",
-"2026-09-05",
-"2026-09-06",
-"2026-09-12",
-"2026-09-13",
-"2026-09-19",
-"2026-09-20",
-"2026-09-26",
-"2026-09-27",
-"2026-10-03",
-"2026-10-04",
-"2026-10-10",
-"2026-10-11",
-"2026-10-17",
-"2026-10-18",
-"2026-10-24",
-"2026-10-25",
-"2026-10-31",
-"2026-11-01",
-"2026-11-07",
-"2026-11-08",
-"2026-11-14",
-"2026-11-15",
-"2026-11-21",
-"2026-11-22",
-"2026-11-28",
-"2026-11-29",
-"2026-12-05",
-"2026-12-06",
-"2026-12-12",
-"2026-12-13",
-"2026-12-19",
-"2026-12-20",
-"2026-12-26",
-"2026-12-27"
+      "2026-03-22",
+      "2026-03-28",
+      "2026-03-29",
+      "2026-04-04",
+      "2026-04-05",
+      "2026-04-11",
+      "2026-04-12",
+      "2026-04-18",
+      "2026-04-19",
+      "2026-04-25",
+      "2026-04-26",
+      "2026-05-02",
+      "2026-05-03",
+      "2026-05-09",
+      "2026-05-10",
+      "2026-05-16",
+      "2026-05-17",
+      "2026-05-23",
+      "2026-05-24",
+      "2026-05-30",
+      "2026-05-31",
+      "2026-06-06",
+      "2026-06-07",
+      "2026-06-13",
+      "2026-06-14",
+      "2026-06-20",
+      "2026-06-21",
+      "2026-06-27",
+      "2026-06-28",
+      "2026-07-04",
+      "2026-07-05",
+      "2026-07-11",
+      "2026-07-12",
+      "2026-07-18",
+      "2026-07-19",
+      "2026-07-25",
+      "2026-07-26",
+      "2026-08-01",
+      "2026-08-02",
+      "2026-08-08",
+      "2026-08-09",
+      "2026-08-15",
+      "2026-08-16",
+      "2026-08-22",
+      "2026-08-23",
+      "2026-08-29",
+      "2026-08-30",
+      "2026-09-05",
+      "2026-09-06",
+      "2026-09-12",
+      "2026-09-13",
+      "2026-09-19",
+      "2026-09-20",
+      "2026-09-26",
+      "2026-09-27",
+      "2026-10-03",
+      "2026-10-04",
+      "2026-10-10",
+      "2026-10-11",
+      "2026-10-17",
+      "2026-10-18",
+      "2026-10-24",
+      "2026-10-25",
+      "2026-10-31",
+      "2026-11-01",
+      "2026-11-07",
+      "2026-11-08",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-21",
+      "2026-11-22",
+      "2026-11-28",
+      "2026-11-29",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-12",
+      "2026-12-13",
+      "2026-12-19",
+      "2026-12-20",
+      "2026-12-26",
+      "2026-12-27"
     ];
 
     const unavailableDates = [
