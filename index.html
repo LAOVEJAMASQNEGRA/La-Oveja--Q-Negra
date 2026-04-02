@@ -298,203 +298,213 @@
     }
 
     /* HERO */
-    .hero{
-      min-height:100vh;
-      position:relative;
-      display:flex;
-      align-items:center;
-      padding:calc(var(--nav-h) + 42px) 0 48px;
-      background:
-        linear-gradient(90deg, rgba(6,6,6,.88) 0%, rgba(6,6,6,.60) 42%, rgba(6,6,6,.76) 100%),
-        url("imagenes/foto03.JPEG") center/cover no-repeat;
-    }
+    /* HERO */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:calc(var(--nav-h) + 42px) 0 48px;
+  overflow:hidden;
+  background:#000;
+}
 
-    .hero::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 25%, rgba(212,175,55,.15), transparent 24%),
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.42));
-      pointer-events:none;
-    }
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
 
-    .hero-grid{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:32px;
-      align-items:center;
-    }
+.hero-overlay{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(6,6,6,.82) 0%, rgba(6,6,6,.58) 42%, rgba(6,6,6,.76) 100%),
+    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.46));
+  z-index:1;
+  pointer-events:none;
+}
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      color:#efe7d8;
-      margin-bottom:18px;
-      font-size:.85rem;
-      backdrop-filter:blur(8px);
-    }
+.hero-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:32px;
+  align-items:center;
+}
 
-    .hero h1{
-      font-family:'Cormorant Garamond', serif;
-      font-size:clamp(3.1rem, 7vw, 5.8rem);
-      line-height:.95;
-      margin-bottom:20px;
-      color:#fff;
-      max-width:760px;
-      text-wrap:balance;
-    }
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:#efe7d8;
+  margin-bottom:18px;
+  font-size:.85rem;
+  backdrop-filter:blur(8px);
+}
 
-    .hero h1 span{
-      color:var(--gold);
-    }
+.hero h1{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(3.1rem, 7vw, 5.8rem);
+  line-height:.95;
+  margin-bottom:20px;
+  color:#fff;
+  max-width:760px;
+  text-wrap:balance;
+}
 
-    .hero p{
-      max-width:670px;
-      color:#f1ebdf;
-      font-size:1.1rem;
-      margin-bottom:30px;
-    }
+.hero h1 span{
+  color:var(--gold);
+}
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:34px;
-    }
+.hero p{
+  max-width:670px;
+  color:#f1ebdf;
+  font-size:1.1rem;
+  margin-bottom:30px;
+}
 
-    .hero-highlights{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:14px;
-      max-width:760px;
-    }
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:34px;
+}
 
-    .highlight{
-      padding:16px 18px;
-      border-radius:18px;
-      background:rgba(15,15,15,.58);
-      border:1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(8px);
-    }
+.hero-highlights{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:14px;
+  max-width:760px;
+}
 
-    .highlight strong{
-      display:block;
-      color:var(--gold);
-      font-size:1.12rem;
-      margin-bottom:4px;
-    }
+.highlight{
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(15,15,15,.58);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(8px);
+}
 
-    .highlight span{
-      color:#dfd5c5;
-      font-size:.94rem;
-    }
+.highlight strong{
+  display:block;
+  color:var(--gold);
+  font-size:1.12rem;
+  margin-bottom:4px;
+}
 
-    .hero-card{
-      justify-self:end;
-      width:min(100%, 420px);
-      padding:30px;
-      border-radius:28px;
-      background:linear-gradient(180deg, rgba(17,17,17,.94), rgba(10,10,10,.88));
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      opacity:0;
-      transform:translateY(26px);
-    }
+.highlight span{
+  color:#dfd5c5;
+  font-size:.94rem;
+}
 
-    .hero-card.visible{
-      animation:fadeUpSoft 1s cubic-bezier(.22,1,.36,1) forwards;
-      animation-delay:.28s;
-    }
+.hero-card{
+  justify-self:end;
+  width:min(100%, 420px);
+  padding:30px;
+  border-radius:28px;
+  background:linear-gradient(180deg, rgba(17,17,17,.94), rgba(10,10,10,.88));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
+  opacity:0;
+  transform:translateY(26px);
+}
 
-    .hero-card-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:14px;
-      margin-bottom:18px;
-    }
+.hero-card.visible{
+  animation:fadeUpSoft 1s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay:.28s;
+}
 
-    .hero-card-title{
-      font-family:'Cormorant Garamond', serif;
-      color:#fff;
-      font-size:2.15rem;
-      line-height:1;
-    }
+.hero-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:18px;
+}
 
-    .badge{
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(212,175,55,.1);
-      border:1px solid rgba(212,175,55,.25);
-      color:var(--gold);
-      font-size:.8rem;
-      white-space:nowrap;
-    }
+.hero-card-title{
+  font-family:'Cormorant Garamond', serif;
+  color:#fff;
+  font-size:2.15rem;
+  line-height:1;
+}
 
-    .hero-card p{
-      font-size:.97rem;
-      color:var(--muted);
-      margin-bottom:22px;
-    }
+.badge{
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(212,175,55,.1);
+  border:1px solid rgba(212,175,55,.25);
+  color:var(--gold);
+  font-size:.8rem;
+  white-space:nowrap;
+}
 
-    .mini-list{
-      display:grid;
-      gap:12px;
-      margin-bottom:22px;
-    }
+.hero-card p{
+  font-size:.97rem;
+  color:var(--muted);
+  margin-bottom:22px;
+}
 
-    .mini-item{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      padding:14px 0;
-      border-bottom:1px solid rgba(255,255,255,.07);
-    }
+.mini-list{
+  display:grid;
+  gap:12px;
+  margin-bottom:22px;
+}
 
-    .mini-item:last-child{
-      border-bottom:none;
-      padding-bottom:0;
-    }
+.mini-item{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
 
-    .mini-icon{
-      width:34px;
-      height:34px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      background:rgba(212,175,55,.1);
-      color:var(--gold);
-      font-size:1rem;
-      flex:0 0 auto;
-    }
+.mini-item:last-child{
+  border-bottom:none;
+  padding-bottom:0;
+}
 
-    .mini-item strong{
-      display:block;
-      color:#fff;
-      font-size:.98rem;
-      margin-bottom:2px;
-    }
+.mini-icon{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(212,175,55,.1);
+  color:var(--gold);
+  font-size:1rem;
+  flex:0 0 auto;
+}
 
-    .mini-item span{
-      color:var(--muted);
-      font-size:.9rem;
-    }
+.mini-item strong{
+  display:block;
+  color:#fff;
+  font-size:.98rem;
+  margin-bottom:2px;
+}
 
-    .hero-card-actions{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin-top:26px;
-    }
+.mini-item span{
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.hero-card-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:26px;
+}
 
     /* CARDS / GRIDS */
     .grid-4{
@@ -899,80 +909,86 @@
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
     </div>
   </header>
+<section class="hero" id="inicio">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="./videos/video-hero.mp4" type="video/mp4">
+    Tu navegador no soporta vídeo HTML5.
+  </video>
 
-  <section class="hero" id="inicio">
-    <div class="container hero-grid">
-      <div class="reveal visible">
-        <div class="eyebrow">Montajes gourmet · Eventos · Catas · Regalos</div>
-        <h1>Experiencias con queso que <span>se recuerdan</span></h1>
-        <p>
-          Diseñamos mesas de quesos artesanales con una estética elegante, una selección cuidada y una puesta en escena pensada para sorprender en bodas, eventos y celebraciones especiales.
-        </p>
+  <div class="hero-overlay"></div>
 
-        <div class="hero-actions">
-          <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20reservar%20una%20experiencia%20con%20La%20Oveja%20%2BQ%20Negra." target="_blank" class="btn btn-gold">Reservar experiencia</a>
-          <a href="#galeria" class="btn btn-outline">Ver inspiración</a>
+  <div class="container hero-grid">
+    <div class="reveal visible">
+      <div class="eyebrow">Montajes gourmet · Eventos · Catas · Regalos</div>
+      <h1>Experiencias con queso que <span>se recuerdan</span></h1>
+      <p>
+        Diseñamos mesas de quesos artesanales con una estética elegante, una selección cuidada y una puesta en escena pensada para sorprender en bodas, eventos y celebraciones especiales.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20reservar%20una%20experiencia%20con%20La%20Oveja%20%2BQ%20Negra." target="_blank" class="btn btn-gold">Reservar experiencia</a>
+        <a href="#galeria" class="btn btn-outline">Ver inspiración</a>
+      </div>
+
+      <div class="hero-highlights">
+        <div class="highlight">
+          <strong>Montaje premium</strong>
+          <span>Diseño visual cuidado para bodas, eventos y celebraciones.</span>
         </div>
+        <div class="highlight">
+          <strong>Selección artesana</strong>
+          <span>Quesos escogidos por sabor, textura y personalidad.</span>
+        </div>
+        <div class="highlight">
+          <strong>Atención personalizada</strong>
+          <span>Cada mesa se adapta al estilo y al momento del cliente.</span>
+        </div>
+      </div>
+    </div>
 
-        <div class="hero-highlights">
-          <div class="highlight">
-            <strong>Montaje premium</strong>
-            <span>Diseño visual cuidado para bodas, eventos y celebraciones.</span>
+    <aside class="hero-card reveal">
+      <div class="hero-card-top">
+        <div>
+          <div class="hero-card-title">Reserva tu fecha</div>
+        </div>
+        <span class="badge">Atención directa</span>
+      </div>
+
+      <p>
+        Si ya tienes un evento en mente, podemos ayudarte a encontrar la propuesta ideal según el tipo de celebración, el número de invitados y el estilo que buscas.
+      </p>
+
+      <div class="mini-list">
+        <div class="mini-item">
+          <div class="mini-icon">✦</div>
+          <div>
+            <strong>Bodas y celebraciones</strong>
+            <span>Montajes elegantes adaptados a cada ocasión.</span>
           </div>
-          <div class="highlight">
-            <strong>Selección artesana</strong>
-            <span>Quesos escogidos por sabor, textura y personalidad.</span>
+        </div>
+        <div class="mini-item">
+          <div class="mini-icon">✦</div>
+          <div>
+            <strong>Trato cercano</strong>
+            <span>Hablamos contigo para definir la mejor propuesta.</span>
           </div>
-          <div class="highlight">
-            <strong>Atención personalizada</strong>
-            <span>Cada mesa se adapta al estilo y al momento del cliente.</span>
+        </div>
+        <div class="mini-item">
+          <div class="mini-icon">✦</div>
+          <div>
+            <strong>Respuesta rápida</strong>
+            <span>WhatsApp directo para resolver dudas y reservar.</span>
           </div>
         </div>
       </div>
 
-      <aside class="hero-card reveal">
-        <div class="hero-card-top">
-          <div>
-            <div class="hero-card-title">Reserva tu fecha</div>
-          </div>
-          <span class="badge">Atención directa</span>
-        </div>
-
-        <p>
-          Si ya tienes un evento en mente, podemos ayudarte a encontrar la propuesta ideal según el tipo de celebración, el número de invitados y el estilo que buscas.
-        </p>
-
-        <div class="mini-list">
-          <div class="mini-item">
-            <div class="mini-icon">✦</div>
-            <div>
-              <strong>Bodas y celebraciones</strong>
-              <span>Montajes elegantes adaptados a cada ocasión.</span>
-            </div>
-          </div>
-          <div class="mini-item">
-            <div class="mini-icon">✦</div>
-            <div>
-              <strong>Trato cercano</strong>
-              <span>Hablamos contigo para definir la mejor propuesta.</span>
-            </div>
-          </div>
-          <div class="mini-item">
-            <div class="mini-icon">✦</div>
-            <div>
-              <strong>Respuesta rápida</strong>
-              <span>WhatsApp directo para resolver dudas y reservar.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-card-actions">
-          <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20una%20mesa%20de%20quesos%20para%20mi%20evento." target="_blank" class="btn btn-whatsapp">Hablar por WhatsApp</a>
-          <a href="#reservas" class="btn btn-outline">Ver opciones de reserva</a>
-        </div>
-      </aside>
-    </div>
-  </section>
+      <div class="hero-card-actions">
+        <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20una%20mesa%20de%20quesos%20para%20mi%20evento." target="_blank" class="btn btn-whatsapp">Hablar por WhatsApp</a>
+        <a href="#reservas" class="btn btn-outline">Ver opciones de reserva</a>
+      </div>
+    </aside>
+  </div>
+</section>
 
   <section class="section" id="historia">
     <div class="container">
