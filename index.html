@@ -667,12 +667,12 @@
     .cheese-4{
       background-image:url('./imagenes/queso04.jpg');
     }
-    
-     .cheese-5{
+
+    .cheese-5{
       background-image:url('./imagenes/queso05.jpg');
     }
 
-     .cheese-6{
+    .cheese-6{
       background-image:url('./imagenes/queso06.jpg');
     }
 
@@ -714,15 +714,16 @@
       transform:translateY(-6px) scale(1.02);
       border-color:var(--line-strong);
     }
+
     .gallery-item:hover .gallery-overlay{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,0.2) 0%,
-      rgba(0,0,0,0.6) 50%,
-      rgba(0,0,0,0.95) 100%
-    );
-}
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0.2) 0%,
+          rgba(0,0,0,0.6) 50%,
+          rgba(0,0,0,0.95) 100%
+        );
+    }
 
     .gallery-image{
       position:absolute;
@@ -739,36 +740,197 @@
     }
 
     .gallery-overlay{
-  position:absolute;
-  inset:0;
-  padding:22px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,0.1) 0%,
-      rgba(0,0,0,0.5) 50%,
-      rgba(0,0,0,0.85) 100%
-    );
-
-  z-index:2;
-}
+      position:absolute;
+      inset:0;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0.1) 0%,
+          rgba(0,0,0,0.5) 50%,
+          rgba(0,0,0,0.85) 100%
+        );
+      z-index:2;
+    }
 
     .gallery-overlay strong{
       display:block;
       color:#fff;
       font-size:1.05rem;
       margin-bottom:4px;
-      text-shadow:0 2px 10px rgba(0,0,0,.6); 
+      text-shadow:0 2px 10px rgba(0,0,0,.6);
     }
 
     .gallery-overlay span{
       color:#ddd0bd;
       font-size:.92rem;
       text-shadow:0 2px 8px rgba(0,0,0,.6);
+    }
+
+    /* RESEÑAS */
+    .reviews-header{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 55px;
+    }
+
+    .reviews-kicker{
+      display:inline-block;
+      color:var(--gold);
+      font-size:.82rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    .reviews-header h2{
+      margin:0 0 14px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(2.2rem, 4vw, 3.6rem);
+      line-height:1;
+      color:var(--text);
+    }
+
+    .reviews-header p{
+      margin:0 auto;
+      max-width:620px;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.7;
+    }
+
+    .reviews-summary{
+      margin-top:28px;
+      display:inline-flex;
+      align-items:center;
+      gap:18px;
+      padding:16px 22px;
+      border:1px solid var(--line);
+      background:rgba(18,18,18,.7);
+      border-radius:18px;
+      box-shadow:0 12px 30px rgba(0,0,0,.22);
+    }
+
+    .reviews-score{
+      font-size:2.1rem;
+      font-weight:700;
+      color:var(--gold);
+      line-height:1;
+    }
+
+    .reviews-summary-text{
+      text-align:left;
+    }
+
+    .stars{
+      color:var(--gold);
+      letter-spacing:2px;
+      font-size:1rem;
+      margin-bottom:4px;
+    }
+
+    .reviews-summary-text span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .review-card{
+      position:relative;
+      padding:28px 24px;
+      background:var(--bg-card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 18px 40px rgba(0,0,0,.24);
+      transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+    }
+
+    .review-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(212,175,55,.08), transparent 35%);
+      pointer-events:none;
+    }
+
+    .review-card:hover{
+      transform:translateY(-6px);
+      border-color:var(--line-strong);
+      box-shadow:0 24px 50px rgba(0,0,0,.3);
+    }
+
+    .review-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .review-stars{
+      color:var(--gold);
+      letter-spacing:2px;
+      font-size:.95rem;
+    }
+
+    .review-date{
+      color:var(--muted);
+      font-size:.82rem;
+    }
+
+    .review-card p{
+      margin:0 0 22px;
+      color:var(--text);
+      line-height:1.8;
+      font-size:1rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .review-card h4{
+      margin:0;
+      color:var(--gold);
+      font-family:'Cormorant Garamond', serif;
+      font-size:1.35rem;
+      font-weight:600;
+      position:relative;
+      z-index:1;
+    }
+
+    .reviews-cta{
+      text-align:center;
+      margin-top:38px;
+    }
+
+    .reviews-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 28px;
+      border-radius:999px;
+      border:1px solid var(--gold);
+      color:var(--bg);
+      background:var(--gold);
+      text-decoration:none;
+      font-weight:600;
+      transition:transform .25s ease, opacity .25s ease, box-shadow .25s ease;
+      box-shadow:0 12px 28px rgba(212,175,55,.18);
+    }
+
+    .reviews-btn:hover{
+      transform:translateY(-2px);
+      opacity:.92;
     }
 
     /* CALENDARIO */
@@ -1061,7 +1223,7 @@
     /* RESPONSIVE */
     @media (max-width: 1100px){
       .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .grid-3,.gallery-grid,.why-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .grid-3,.gallery-grid,.why-grid,.reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
       .hero-grid,.story-grid,.reserve-wrap{grid-template-columns:1fr;}
       .hero-card{justify-self:start;}
       .hero-highlights{grid-template-columns:1fr;max-width:100%;}
@@ -1081,7 +1243,7 @@
     @media (max-width: 640px){
       .section{padding:84px 0;}
       .container{width:min(100% - 20px, 1180px);}
-      .grid-4,.grid-3,.gallery-grid,.why-grid{grid-template-columns:1fr;}
+      .grid-4,.grid-3,.gallery-grid,.why-grid,.reviews-grid{grid-template-columns:1fr;}
       .hero-actions,.contact-links{flex-direction:column;align-items:stretch;}
       .btn{width:100%;}
       .card,.story-main,.reserve-box,.hero-card,.contact-box,.calendar-box{padding:24px;}
@@ -1111,6 +1273,13 @@
         right:14px;
         bottom:14px;
       }
+      .reviews-summary{
+        flex-direction:column;
+        text-align:center;
+      }
+      .reviews-summary-text{
+        text-align:center;
+      }
     }
   </style>
 </head>
@@ -1134,6 +1303,7 @@
         <a href="#por-que-elegirnos">Por qué elegirnos</a>
         <a href="#quesos">Quesos</a>
         <a href="#galeria">Galería</a>
+        <a href="#resenas">Reseñas</a>
         <a href="#calendario">Calendario</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -1396,6 +1566,67 @@
     </div>
   </section>
 
+  <section class="section" id="resenas">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <span class="reviews-kicker">Opiniones de clientes</span>
+        <h2>Lo que dicen de nosotros</h2>
+        <p>
+          Experiencias reales de clientes que han disfrutado de nuestras mesas y selecciones gourmet.
+        </p>
+
+        <div class="reviews-summary">
+          <div class="reviews-score">4.9</div>
+          <div class="reviews-summary-text">
+            <div class="stars">★★★★★</div>
+            <span>Basado en valoraciones de nuestros clientes</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="review-card reveal">
+          <div class="review-top">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">Cliente verificado</span>
+          </div>
+          <p>
+            “Una presentación preciosa y un sabor espectacular. Todo estaba cuidado al detalle y sorprendió muchísimo a nuestros invitados.”
+          </p>
+          <h4>María G.</h4>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-top">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">Cliente verificado</span>
+          </div>
+          <p>
+            “Calidad excelente, atención cercana y una mesa de quesos elegante y diferente. Volveríamos a contar con Rosa sin dudarlo.”
+          </p>
+          <h4>Antonio R.</h4>
+        </article>
+
+        <article class="review-card reveal">
+          <div class="review-top">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">Cliente verificado</span>
+          </div>
+          <p>
+            “Una experiencia gourmet preciosa de principio a fin. Perfecto para eventos especiales y para dejar a todos con la boca abierta.”
+          </p>
+          <h4>Carmen L.</h4>
+        </article>
+      </div>
+
+      <div class="reviews-cta reveal">
+        <a href="https://wa.me/34673516594?text=Hola,%20Rosa.%20Me%20gustar%C3%ADa%20dejar%20una%20rese%C3%B1a%20sobre%20La%20Oveja%20%2BQ%20Negra." class="reviews-btn" target="_blank">
+          Déjanos tu reseña
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="calendario">
     <div class="container">
       <h2 class="section-title reveal">Calendario de disponibilidad</h2>
@@ -1474,7 +1705,9 @@
     <div class="container">
       <div class="contact-box reveal">
         <h2 class="section-title" style="margin-bottom:12px;">Contacto</h2>
-        <p class="section-text" style="margin-bottom:0;"> Aquí queda pendiente de añadir el boton del teléfono, de instagram y de facebook
+        <p class="section-text" style="margin-bottom:0;">
+          Aquí queda pendiente de añadir el botón del teléfono, de Instagram y de Facebook
+        </p>
         <div class="contact-links">
           <a class="btn btn-gold" href="mailto:contacto@laovejamasquenegra.com">contacto@laovejamasquenegra.com</a>
           <a class="btn btn-outline" href="https://www.instagram.com/laovejamasquenegra/" target="_blank" rel="noopener noreferrer">Instagram</a>
